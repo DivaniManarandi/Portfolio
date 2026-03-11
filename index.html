@@ -119,6 +119,47 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Additional responsive utilities */
+@keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+.animate-blob {
+    animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+    animation-delay: 4s;
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+}
+
+/* Ensure smooth image loading */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Better mobile tap targets */
+@media (max-width: 640px) {
+    .project-card, .skill-card {
+        margin-bottom: 1rem;
+    }
+}
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-darker text-slate-800 dark:text-slate-200 transition-colors duration-300">
@@ -175,69 +216,92 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
-        <!-- Background Elements -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute -top-40 -right-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        </div>
+    <!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-10">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-20 left-1/3 w-72 h-72 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center" data-aos="fade-up">
-             <!-- Profile Photo -->
-        <div class="mb-8 relative inline-block">
-            <div class="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl relative z-10">
-                <img 
-                    src="https://raw.githubusercontent.com/DivaniManarandi/Portfolio/main/profile.jpeg" 
-                    alt="Divani Manarandi" 
-                    class="w-full h-full object-cover"
-                    onerror="this.src='https://via.placeholder.com/400x400/3B82F6/FFFFFF?text=DM'"
-                >
-            </div>
-            <!-- Decorative ring -->
-            <div class="absolute inset-0 rounded-full border-4 border-blue-400/30 scale-110 animate-pulse"></div>
-        </div>
+    <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="flex flex-col items-center justify-center text-center" data-aos="fade-up">
             
-            <div class="inline-block mb-4 px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-mono">
+            <!-- Profile Photo - Centered & Responsive -->
+            <div class="relative mb-6 md:mb-8">
+                <!-- Outer glow ring -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 blur-xl opacity-40 animate-pulse scale-110"></div>
+                
+                <!-- Main container -->
+                <div class="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 mx-auto">
+                    <!-- Rotating border decoration -->
+                    <div class="absolute inset-0 rounded-full border-2 border-dashed border-blue-400/50 animate-spin-slow" style="animation-duration: 20s;"></div>
+                    
+                    <!-- Image container -->
+                    <div class="absolute inset-2 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl bg-slate-200 dark:bg-slate-700">
+                        <img 
+                            src="https://raw.githubusercontent.com/DivaniManarandi/Portfolio/main/profile.jpeg" 
+                            alt="Divani Manarandi" 
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Divani+Manarandi&background=3B82F6&color=fff&size=400'"
+                        >
+                    </div>
+                    
+                    <!-- Online status indicator -->
+                    <div class="absolute bottom-2 right-2 w-6 h-6 md:w-8 md:h-8 bg-green-500 border-4 border-white dark:border-slate-800 rounded-full z-20" title="Available for work"></div>
+                </div>
+            </div>
+
+            <!-- Text Content -->
+            <div class="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-mono font-medium">
                 Hello, World! 👋
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight px-4">
                 I'm <span class="text-gradient">Divani Manarandi</span>
             </h1>
-            <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto font-mono">
+            
+            <p class="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-4 max-w-2xl mx-auto font-mono px-4">
                 Aspiring Cloud Engineer | AWS Enthusiast | .NET Developer
             </p>
-            <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto">
-                Computer Engineering undergraduate crafting scalable solutions in the cloud and robust applications on the web.
+            
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
+                Computer Engineering graduate crafting scalable solutions in the cloud and robust applications on the web.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30">
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full max-w-md sm:max-w-none px-4">
+                <a href="#projects" class="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-blue-500/30 text-center">
                     View Projects
                 </a>
-                <a href="#contact" class="px-8 py-4 glass hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg font-semibold transition-all transform hover:scale-105 border border-slate-300 dark:border-slate-700">
+                <a href="#contact" class="px-6 sm:px-8 py-3 sm:py-4 glass hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg font-semibold transition-all transform hover:scale-105 border border-slate-300 dark:border-slate-700 text-center">
                     Get In Touch
                 </a>
             </div>
 
-            <div class="mt-12 flex justify-center space-x-6">
-                <a href="https://github.com/DivaniManarandi" target="_blank" class="text-2xl hover:text-blue-500 transition-colors transform hover:scale-110">
+            <!-- Social Links -->
+            <div class="mt-8 sm:mt-12 flex justify-center space-x-6 sm:space-x-8">
+                <a href="https://github.com/DivaniManarandi" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 text-xl sm:text-2xl text-slate-600 dark:text-slate-400">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/divani-manarandi-276894203/" target="_blank" class="text-2xl hover:text-blue-500 transition-colors transform hover:scale-110">
+                <a href="https://www.linkedin.com/in/divani-manarandi-276894203/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 text-xl sm:text-2xl text-slate-600 dark:text-slate-400">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:divamanashvi03@gmail.com" class="text-2xl hover:text-blue-500 transition-colors transform hover:scale-110">
+                <a href="mailto:divamanashvi03@gmail.com" class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-blue-500 hover:text-white transition-all duration-300 transform hover:scale-110 text-xl sm:text-2xl text-slate-600 dark:text-slate-400">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>
 
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#about" class="text-slate-400 hover:text-blue-500 transition-colors">
-                <i class="fas fa-chevron-down text-2xl"></i>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-slate-400 hover:text-blue-500 transition-colors p-2">
+                <i class="fas fa-chevron-down text-xl sm:text-2xl"></i>
             </a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white dark:bg-dark transition-colors">
@@ -890,4 +954,5 @@
 </body>
 
 </html>
+
 
