@@ -214,8 +214,7 @@ img {
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
+    
     <!-- Hero Section -->
 <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-10">
     <!-- Background Elements -->
@@ -304,43 +303,91 @@ img {
 </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white dark:bg-dark transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+<section id="about" class="py-20 bg-white dark:bg-dark transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+            <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            <!-- Left: Background & Passion -->
+            <div class="space-y-6" data-aos="fade-right">
+                <div class="glass p-6 sm:p-8 rounded-2xl h-full flex flex-col">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-code text-blue-500 mr-3"></i>
+                        Background & Passion
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base flex-grow">
+                        I am a Computer Engineering graduate with hands-on experience in full-stack web development and deployment. 
+                        My journey began with a curiosity about how things work under the hood, which evolved into a deep passion for cloud technologies and distributed systems. 
+                        I thrive on solving problems and building systems that are not just functional, but scalable and resilient.
+                    </p>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6" data-aos="fade-right">
-                    <div class="glass p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <i class="fas fa-code text-blue-500 mr-3"></i>
-                            Background & Passion
-                        </h3>
-                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-                            I am a Computer Engineering graduate with hands-on experience in full-stack web development and deployment. 
-                            My journey began with a curiosity about how things work under the hood, which evolved into a deep passion for cloud technologies and distributed systems. 
-                            I thrive on solving problems and building systems that are not just functional, but scalable and resilient.
-                        </p>
+            <!-- Right: Education, Career Goals & Work Experience -->
+            <div class="space-y-6" data-aos="fade-left">
+                <!-- Education Card -->
+                <div class="glass p-6 sm:p-8 rounded-2xl">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-graduation-cap text-green-500 mr-3"></i>
+                        Education
+                    </h3>
+                    <div class="border-l-4 border-green-500 pl-4 sm:pl-6 py-2">
+                        <h4 class="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200">BSc.Eng (Hons) in Computer Engineering</h4>
+                        <p class="text-blue-600 dark:text-blue-400 font-medium text-sm sm:text-base mt-1">University of Jaffna</p>
+                        <div class="flex items-center mt-2 text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>2021 - Present</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-y-6" data-aos="fade-left">
-                    <div class="glass p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-4 flex items-center">
-                            <i class="fas fa-rocket text-purple-500 mr-3"></i>
+                <!-- Career Goals & Work Experience Grid -->
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Career Goals Card -->
+                    <div class="glass p-6 sm:p-8 rounded-2xl">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 flex items-center">
+                            <i class="fas fa-rocket text-purple-500 mr-2"></i>
                             Career Goals
                         </h3>
-                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-xs sm:text-sm">
                             Currently expanding my expertise toward AWS and Google Cloud certifications, I aim to bridge the gap between software development and cloud infrastructure.
-                            My goal is to pursue roles in cloud engineering and DevOps, where I can leverage my development background to build automated, efficient, and cloud-native solutions that drive business value.
+                            My goal is to pursue roles in cloud engineering and DevOps.
                         </p>
+                    </div>
+
+                    <!-- Work Experience Card -->
+                    <div class="glass p-6 sm:p-8 rounded-2xl">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 flex items-center">
+                            <i class="fas fa-briefcase text-orange-500 mr-2"></i>
+                            Work Experience
+                        </h3>
+                        <div class="mb-3">
+                            <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm sm:text-base">Software Engineering Intern</h4>
+                            <p class="text-orange-600 dark:text-orange-400 font-medium text-xs sm:text-sm">Variosystems Pvt (Ltd)</p>
+                            <div class="flex items-center mt-1 text-slate-500 dark:text-slate-400 text-xs">
+                                <i class="far fa-calendar-alt mr-1.5"></i>
+                                <span>Feb 2025 - Dec 2025</span>
+                            </div>
+                        </div>
+                        <ul class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm space-y-1.5 leading-relaxed">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                                <span>Developed and contributed to more than 5 internal applications using Blazor (C#.NET) and Tailwind CSS.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mr-2 mt-1 text-xs"></i>
+                                <span>Worked on both front-end and back-end development, delivering scalable, efficient, and user-friendly solutions.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-slate-50 dark:bg-darker">
@@ -954,5 +1001,6 @@ img {
 </body>
 
 </html>
+
 
 
