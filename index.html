@@ -160,6 +160,101 @@ img {
         margin-bottom: 1rem;
     }
 }
+
+/* contact */
+.contact-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid transparent;
+            background: rgba(255,255,255,0.05);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            overflow: hidden;
+        }
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            border-radius: inherit;
+            transition: opacity 0.35s ease;
+        }
+        .contact-card:hover::before { opacity: 1; }
+        .contact-card:hover { transform: translateX(6px); border-color: transparent; }
+
+        .contact-card.linkedin::before  { background: linear-gradient(135deg, #0077b520, #0077b508); }
+        .contact-card.linkedin:hover    { border-color: #0077b540; box-shadow: 0 8px 32px #0077b520; }
+
+        .contact-card.phone::before     { background: linear-gradient(135deg, #22c55e20, #22c55e08); }
+        .contact-card.phone:hover       { border-color: #22c55e40; box-shadow: 0 8px 32px #22c55e20; }
+
+        .contact-card.gmail::before     { background: linear-gradient(135deg, #ea433520, #ea433508); }
+        .contact-card.gmail:hover       { border-color: #ea433540; box-shadow: 0 8px 32px #ea433520; }
+
+        .contact-icon-wrap {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            transition: all 0.35s ease;
+            position: relative; z-index: 1;
+        }
+        .linkedin .contact-icon-wrap  { background: #0077b515; color: #0077b5; }
+        .phone    .contact-icon-wrap  { background: #22c55e15; color: #22c55e; }
+        .gmail    .contact-icon-wrap  { background: #ea433515; color: #ea4335; }
+
+        .contact-card:hover .contact-icon-wrap { transform: scale(1.1) rotate(-4deg); }
+        .linkedin:hover .contact-icon-wrap  { background: #0077b5; color: #fff; }
+        .phone:hover    .contact-icon-wrap  { background: #22c55e; color: #fff; }
+        .gmail:hover    .contact-icon-wrap  { background: #ea4335; color: #fff; }
+
+        .contact-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+            opacity: 0.5;
+        }
+        .contact-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .linkedin:hover .contact-value  { color: #0077b5; }
+        .phone:hover    .contact-value  { color: #22c55e; }
+        .gmail:hover    .contact-value  { color: #ea4335; }
+
+        .contact-arrow {
+            margin-left: auto;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+            position: relative; z-index: 1;
+            font-size: 0.85rem;
+        }
+        .contact-card:hover .contact-arrow { opacity: 0.5; transform: translateX(0); }
+
+        .contact-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(148,163,184,0.2), transparent);
+            margin: 0.25rem 0;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .contact-card { animation: fadeSlideUp 0.5s ease both; }
+        .contact-card:nth-child(1) { animation-delay: 0.1s; }
+        .contact-card:nth-child(3) { animation-delay: 0.2s; }
+        .contact-card:nth-child(5) { animation-delay: 0.3s; }
+        
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-darker text-slate-800 dark:text-slate-200 transition-colors duration-300">
@@ -597,19 +692,8 @@ img {
                     </a>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
 
-    <!-- Website Designs / Freelance Work -->
-<section class="py-20 bg-white dark:bg-dark">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">
-                <i class="fas fa-briefcase text-blue-500 mr-3"></i>Freelance Work</h2>
-            <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full"></div>
-        </div>
-
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h3 class="text-2xl md:text-3xl font-bold mb-8 text-slate-700 dark:text-slate-300 border-b border-slate-200 dark:border-slate-700 pb-4">Web App Development</h3>
         
         <div class="grid md:grid-cols-2 gap-8">
@@ -655,8 +739,12 @@ img {
                 </div>
             </div>
         </div>
+    </div>            
+        </div>
     </div>
 </section>
+
+
 
    <!-- Content Creation -->
 <section class="py-10 bg-slate-50 dark:bg-darker">
@@ -952,8 +1040,6 @@ img {
     </div>
 </section>     
                 
-            
-    
     <!-- Certifications -->
     <section class="py-20 bg-white dark:bg-dark">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1060,45 +1146,67 @@ img {
 
     <!-- Contact Section -->
 <section id="contact" class="py-20 bg-white dark:bg-dark relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50 dark:to-blue-900/10 pointer-events-none"></div>
-    
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50 dark:to-blue-900/10 pointer-events-none"></div>
+
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Heading -->
         <div class="text-center mb-16" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
             <div class="w-20 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
             <p class="text-slate-600 dark:text-slate-400">Have a project in mind? Let's build something amazing together.</p>
         </div>
 
+        <!-- Card -->
         <div class="glass rounded-2xl p-8 md:p-12 border border-slate-200 dark:border-slate-700 shadow-2xl" data-aos="zoom-in">
-            <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-700 flex flex-col items-center gap-4">
+
+            <p class="text-center text-xs uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-6">Reach me via</p>
+
+            <div class="flex flex-col gap-1 max-w-md mx-auto">
 
                 <!-- LinkedIn -->
-                <a href="https://linkedin.com" target="_blank" class="flex items-center gap-4 group w-full max-w-xs">
-                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 transition-colors">
-                        <i class="fab fa-linkedin text-xl group-hover:text-white transition-colors"></i>
+                <a href="https://linkedin.com" target="_blank" class="contact-card linkedin">
+                    <div class="contact-icon-wrap">
+                        <i class="fab fa-linkedin"></i>
                     </div>
-                    <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-blue-500 transition-colors">LinkedIn</span>
+                    <div style="position:relative;z-index:1;">
+                        <div class="contact-label text-slate-400">Connect</div>
+                        <div class="contact-value text-slate-700 dark:text-slate-200">LinkedIn</div>
+                    </div>
+                    <i class="fas fa-arrow-right contact-arrow text-slate-400"></i>
                 </a>
+
+                <div class="contact-divider"></div>
 
                 <!-- Phone -->
-                <a href="tel:+94765939446" class="flex items-center gap-4 group w-full max-w-xs">
-                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-green-500 transition-colors">
-                        <i class="fas fa-phone text-xl group-hover:text-white transition-colors"></i>
+                <a href="tel:+94765939446" class="contact-card phone">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-phone"></i>
                     </div>
-                    <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-green-500 transition-colors">+94 76 593 9446</span>
+                    <div style="position:relative;z-index:1;">
+                        <div class="contact-label text-slate-400">Call</div>
+                        <div class="contact-value text-slate-700 dark:text-slate-200">+94 76 593 9446</div>
+                    </div>
+                    <i class="fas fa-arrow-right contact-arrow text-slate-400"></i>
                 </a>
 
+                <div class="contact-divider"></div>
+
                 <!-- Gmail -->
-                <a href="mailto:divamanashvi03@gmail.com" class="flex items-center gap-4 group w-full max-w-xs">
-                    <div class="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 group-hover:bg-red-500 transition-colors">
-                        <i class="fab fa-google text-xl group-hover:text-white transition-colors"></i>
+                <a href="mailto:divamanashvi03@gmail.com" class="contact-card gmail">
+                    <div class="contact-icon-wrap">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    <span class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-red-500 transition-colors">divamanashvi03@gmail.com</span>
+                    <div style="position:relative;z-index:1;">
+                        <div class="contact-label text-slate-400">Email</div>
+                        <div class="contact-value text-slate-700 dark:text-slate-200">divamanashvi03@gmail.com</div>
+                    </div>
+                    <i class="fas fa-arrow-right contact-arrow text-slate-400"></i>
                 </a>
 
             </div>
         </div>
-    </div>
+    </div>  
 </section>
 
     <!-- Footer -->
